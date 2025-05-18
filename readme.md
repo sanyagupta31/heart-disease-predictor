@@ -1,79 +1,82 @@
- 
+# ❤️ HeartCare – Heart Disease Prediction Web App
 
-````markdown
-# ❤️ Heart Disease Prediction App
-
-This is a simple web app built using **Streamlit** and **Scikit-learn** to predict the likelihood of heart disease based on user inputs.
+**HeartCare** is a simple and fast web application built using **Streamlit** and **Scikit-learn**. It predicts the risk of heart disease based on medical input parameters.
 
 ---
 
-## 📊 Dataset
+## 📊 Dataset Used
 
-The model is trained on the [Heart Disease UCI dataset](https://www.kaggle.com/datasets/ronitf/heart-disease-uci), which includes 303 samples and 13 clinical features.
+The model is trained on the [Heart Disease UCI dataset](https://www.kaggle.com/datasets/ronitf/heart-disease-uci), containing:
 
----
-
-## 🚀 Features
-
-- Predicts heart disease risk based on 13 medical attributes.
-- Clean and simple UI with Streamlit.
-- Model built using Logistic Regression.
-- Fast and lightweight app.
+- ✅ 303 patient records  
+- ✅ 13 clinical features  
+- ✅ Binary target variable (1 = disease, 0 = no disease)
 
 ---
 
-## 🧠 Input Features
+## ⚙️ Features
 
-The app takes the following inputs:
-
-1. Age
-2. Sex
-3. Chest Pain Type (`cp`)
-4. Resting Blood Pressure (`trestbps`)
-5. Cholesterol (`chol`)
-6. Fasting Blood Sugar (`fbs`)
-7. Resting ECG (`restecg`)
-8. Maximum Heart Rate (`thalach`)
-9. Exercise Induced Angina (`exang`)
-10. ST Depression (`oldpeak`)
-11. Slope of ST (`slope`)
-12. Number of Major Vessels (`ca`)
-13. Thalassemia (`thal`)
+- 🔍 Predicts heart disease risk using Logistic Regression  
+- 📱 Easy-to-use web interface with Streamlit  
+- ⚡ Fast prediction with trained `.pkl` model  
+- 🧠 Uses 13 key medical inputs
 
 ---
 
-## 🛠 Installation
+## 🧠 Input Parameters
 
-1. Clone the repo:
-    ```bash
-    git clone https://github.com/sanyagupta31/heart-disease-predictor.git
-    cd heart-disease-predictor
-    ```
+The model takes the following features:
 
-2. Install required packages:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3. Run the app:
-    ```bash
-    streamlit run app.py
-    ```
+| Feature       | Description                       |
+|---------------|-----------------------------------|
+| Age           | Age of the patient                |
+| Sex           | 1 = Male, 0 = Female              |
+| cp            | Chest pain type (0–3)            |
+| trestbps      | Resting blood pressure (mm Hg)   |
+| chol          | Serum cholesterol (mg/dl)        |
+| fbs           | Fasting blood sugar > 120 mg/dl (1 = true) |
+| restecg       | Resting electrocardiographic results |
+| thalach       | Maximum heart rate achieved      |
+| exang         | Exercise induced angina (1 = yes)|
+| oldpeak       | ST depression induced by exercise|
+| slope         | Slope of peak exercise ST segment|
+| ca            | Number of major vessels (0–4)    |
+| thal          | 3 = normal, 6 = fixed defect, 7 = reversible defect |
 
 ---
 
-## 🧪 Model Training (Optional)
+## 🚀 How to Run the App
 
-If you'd like to retrain the model:
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/sanyagupta31/heart-disease-predictor.git
+   cd heart-disease-predictor
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Launch the app:**
+   ```bash
+   streamlit run app.py
+   ```
+
+---
+
+## 🧪 Want to Retrain the Model?
+
+You can retrain the model using the following Python code:
 
 ```python
-# See model_training.py or include this code in a new notebook
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 import pickle
 
 df = pd.read_csv("heart.csv")
+
 X = df[['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs',
         'restecg', 'thalach', 'exang', 'oldpeak', 'slope', 'ca', 'thal']]
 y = df['target']
@@ -85,49 +88,44 @@ model.fit(X_train, y_train)
 
 with open('heart_disease_model.pkl', 'wb') as f:
     pickle.dump(model, f)
-````
+```
 
 ---
 
-## 📎 File Structure
+## 🗂 Project Structure
 
 ```
 heart-disease-predictor/
 │
 ├── app.py                   # Streamlit app
 ├── heart.csv                # Dataset
-├── heart_disease_model.pkl  # Trained model
-├── README.md                # You are here!
-└── requirements.txt         # Python packages
+├── heart_disease_model.pkl  # Trained ML model
+├── requirements.txt         # Python dependencies
+└── README.md                # Project documentation
 ```
 
 ---
 
 ## 📸 Screenshots
 
-Screenshot 2025-05-18 131721.png
-Screenshot 2025-05-18 131802.png
+![Screenshot](Screenshot%202025-05-18%20131721.png)
+![Screenshot](Screenshot%202025-05-18%20131802.png)
 
 ---
 
-## 📌 Requirements
+## 🧾 Requirements
 
-* Python 3.7+
-* scikit-learn
-* pandas
-* streamlit
-
----
-
-
-
-## ✅ License
-
-This project is open-source and free to use under the MIT License.
-
-```
+- Python 3.7+
+- pandas
+- scikit-learn
+- streamlit
 
 ---
 
-Let me know if you'd like a customized version with your name, GitHub profile link, or screenshots.
-```
+## 📜 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+**Made with ❤️ by [Sanya Gupta](https://github.com/sanyagupta31)**  
